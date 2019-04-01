@@ -7,6 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="1">
+            <TextBlock>Id</TextBlock>
+            <TextBox x:Name="idTextBox"></TextBox>
+            <TextBlock>FirstName</TextBlock>
+            <TextBox x:Name="firstNameTextBox"></TextBox>
+            <TextBlock>LastName</TextBlock>
+            <TextBox x:Name="lastNameTextBox"></TextBox>
+            <TextBlock>Age</TextBlock>
+            <TextBox x:Name="ageTextBox"></TextBox>
+            <Button x:Name="InsertButton" Click="InsertButton_Click">Insert</Button>
+        </StackPanel>
         
+        <StackPanel Grid.Column="2">
+            <TextBlock>search</TextBlock>
+            <TextBox x:Name="searchTextBox"></TextBox>
+            <Button x:Name="RefreshButton" Click="RefreshButton_Click">Refresh</Button>
+            <DataGrid x:Name="podaciDataGrid" ItemsSource="{Binding}" Height="200"/>
+        </StackPanel>
+
     </Grid>
 </Window>
