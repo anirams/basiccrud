@@ -25,6 +25,10 @@
             <TextBlock>Age</TextBlock>
             <TextBox x:Name="ageTextBox"></TextBox>
             <Button x:Name="InsertButton" Click="InsertButton_Click">Insert</Button>
+            <Button x:Name="UpdateButton" Click="UpdateButton_Click">Update</Button>
+
+            <Button x:Name="DeleteButton" Click="DeleteButton_Click">Delete</Button>
+
         </StackPanel>
         
         <StackPanel Grid.Column="2">

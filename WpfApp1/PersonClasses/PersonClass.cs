@@ -49,5 +49,44 @@ namespace WpfApp1.PersonClasses
             conn.Close();
             return dt;
         }
+
+        public bool Delete(int id)
+        {
+            bool issuccess = false;
+
+            SqlConnection conn = new SqlConnection(connstring);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Person WHERE Id=@Id",conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            conn.Open();
+            int rows = cmd.ExecuteNonQuery();
+            conn.Close();
+            if  (rows > 0)
+            {
+                issuccess = true;
+                return issuccess;
+            }
+            return issuccess;
+        }
+
+        public bool Update(PersonClass person)
+        {
+            bool issuccess = false;
+
+            SqlConnection conn = new SqlConnection(connstring);
+            SqlCommand cmd = new SqlCommand("UPDATE Person SET FirstName=@FirstName, LastName=@LastName, Age=@Age WHERE Id=@Id", conn);
+            cmd.Parameters.AddWithValue("@Id", person.Id);
+            cmd.Parameters.AddWithValue("@FirstName", person.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", person.LastName);
+            cmd.Parameters.AddWithValue("@Age", person.Age);
+            conn.Open();
+            int rows = cmd.ExecuteNonQuery();
+            conn.Close();
+            if (rows > 0)
+            {
+                issuccess = true;
+                return issuccess;
+            }
+            return issuccess;
+        }
     }
 }

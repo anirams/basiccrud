@@ -46,5 +46,24 @@ namespace WpfApp1
             dt = person.Return();
             podaciDataGrid.DataContext = dt.DefaultView;
         }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonClass person = new PersonClass();
+            person.FirstName = firstNameTextBox.Text;
+            person.LastName = lastNameTextBox.Text;
+            person.Age = Int32.Parse(ageTextBox.Text);
+            person.Update(person);
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            ageTextBox.Text = "";
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonClass person = new PersonClass();
+            int id = Int32.Parse(idTextBox.Text);
+            person.Delete(id);
+        }
     }
 }
